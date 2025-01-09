@@ -9,7 +9,7 @@ pip install -r requirements.txt
 
 ***Run UI:***
 ``` bash
-python -m streamlit run app.py
+python -m streamlit run py_slr_ui/app.py
 ```
 
 ***Run Simulation Code only:***
