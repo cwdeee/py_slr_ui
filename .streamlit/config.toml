@@ -1,0 +1,7 @@
+[theme]
+primaryColor = "#1E90FF"  # A blue shade
+backgroundColor = "#FFFFFF"  # White background
+secondaryBackgroundColor = "#F0F8FF"  # Light blue-ish white
+textColor = "#000000"  # Black text for readability
+font = "sans serif"  # Optional, but you can set your preferred font here
+base = "light"  # Ensure the base theme is set to light mode
