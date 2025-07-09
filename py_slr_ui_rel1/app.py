@@ -186,4 +186,4 @@ if st.button("Run"):
 
     df = pd.read_csv(folder_out + "results.csv", index_col=False)
     st.write("### Simulation Results")
-    st.table(df)
+    st.dataframe(df, use_container_width=True)
