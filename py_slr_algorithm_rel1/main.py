@@ -8,7 +8,7 @@ from helpers.helper_functions import wrapper_lexicon_wide_pe_estimation, initiat
 
 
 
-cd = str(Path(__file__).parent.parent.joinpath("py_slr-ui_rel1").resolve()) #str(os.getcwd())#str(Path(__file__).parent) #os.getcwd() 
+cd = str(Path(__file__).parent.parent.joinpath("py_slr_ui_rel1").resolve()) 
 
 folder_in = cd+"/input_data/"
 folder_in2 = cd+"/template_data/"
