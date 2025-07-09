@@ -1,48 +1,12 @@
-# Python Version of the Speechless Reader Model - v0.01
-
-## Deploy Locally
-
-***Install:***
-``` bash
-pip install -r requirements.txt
-```
-
-***Run UI:***
-``` bash
-python -m streamlit run py_slr_ui/app.py
-```
-
-***Run Simulation Code only:***
-Input files: "data" folder
-Output files: "output" folder
-And then run the command:
-``` bash
-python -m main
-```
+﻿# py_slr_v.01-ui
 
 
-## Deploy on Heroku
+Folders:
+* py_slr_v.01-ui: contains the streamlit app
+* py_slr_v.01-main_rel1: a downloaded release version (release 1) of the bgagl/py_slr_v.01-main repo 
+* py_slr_v.01-main_rel2: a downloaded release version (release 2) of the bgagl/py_slr_v.01-main repo 
 
-Sign up & Download Heroku CLI
+Both of those release versions have a main.py file which contains a main() function. 
+The "Run"-UI-Button of the streamlit application of py_slr_v.01-ui loads the main.py as a module, depending on which "algorithm version" is selected in the UI, and then runs the main() function. A output file called "results.csv" gets generated, which is displayed in the streamlit UI App as a table. After that the modules loaded get unloaded again. 
 
-***Clone Project and Create App:***
-``` bash
-heroku login
-git clone https://github.com/bgagl/py_slr_v.01.git
-cd py_slr_v.01
-heroku create lex-app
-```
-
-***Deploy:***
-``` bash
-git add .
-git commit -m "Initial commit"
-git push heroku master
-```
-
-
-## Commit Changes 
-If you want to push code changes to GitHub, you would use:
-``` bash
-git push origin master
-```
+In future version it's important that the main.py contains a main() function. 

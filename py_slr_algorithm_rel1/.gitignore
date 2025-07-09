@@ -1,0 +1,8 @@
+/output_data/results.csv
+/input_data/human_w.csv
+/input_data/human_w_lexicon.csv
+/input_data/human_non-words.csv
+/__pycache__/
+/representations/__pycache__/
+/helpers/__pycache__/
+/behavior/__pycache__/
