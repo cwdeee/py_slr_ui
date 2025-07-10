@@ -8,13 +8,15 @@ from helpers.helper_functions import wrapper_lexicon_wide_pe_estimation, initiat
 
 
 
-cd = str(Path(__file__).parent.resolve()) 
 
-folder_in = cd+"/input_data/"
-folder_in2 = cd+"/template_data/"
-folder_out = cd+"/output_data/"
 
-def main():
+
+def main(base_dir):
+    cd = str(base_dir)
+    folder_in = cd+"/input_data/"
+    folder_in2 = cd+"/template_data/"
+    folder_out = cd+"/output_data/"
+
     human_lex = initiate_lexicon(word_file_task=folder_in + '/human_w.csv',
                                  word_file_lexicon=folder_in + '/human_w_lexicon.csv',
                                  non_word_task=folder_in + '/human_non-words.csv')

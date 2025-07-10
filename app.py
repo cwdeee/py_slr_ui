@@ -49,7 +49,7 @@ def load_module_and_run_calculation_function(_dir):
     print("Using " + _path)
     app_module = importlib.import_module('main')
     os.chdir(_path)
-    app_module.main()
+    app_module.main(base_dir)
     os.chdir(base_dir)
     
     # Unload all new imports (including 'main' and its dependencies)
