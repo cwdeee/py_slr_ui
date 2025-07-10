@@ -105,7 +105,7 @@ def run_simulation(stimuli_words, stimuli_non_words, lexicon):
 st.set_page_config(page_title="Self Learning Systems Lab", layout="centered")
 
 # Add the logo to the app
-st.image(str(base_dir.joinpath("logo.png").resolve()), width=200)
+#st.image(str(base_dir.joinpath("logo.png").resolve()), width=200)
 # Custom theme styling
 # Set the light theme in app code
 st.markdown("""
