@@ -89,9 +89,9 @@ def run_simulation(stimuli_words, stimuli_non_words, lexicon):
     df_human_w_lexicon = pd.DataFrame(human_w_lexicon, columns=["Lexicon"])
     
     # Save to CSV
-    df_human_w.dropna().to_csv(folder_in + "human_w.csv", index=False, header=False, encoding='utf-8')
-    df_human_non_words.dropna().to_csv(folder_in + "human_non-words.csv", index=False, header=False, encoding='utf-8')
-    df_human_w_lexicon.dropna().to_csv(folder_in + "human_w_lexicon.csv", index=False, header=False, encoding='utf-8')
+    df_human_w.dropna().to_csv(folder_in + "/human_w.csv", index=False, header=False, encoding='utf-8')
+    df_human_non_words.dropna().to_csv(folder_in + "/human_non-words.csv", index=False, header=False, encoding='utf-8')
+    df_human_w_lexicon.dropna().to_csv(folder_in + "/human_w_lexicon.csv", index=False, header=False, encoding='utf-8')
     
 
     load_module_and_run_calculation_function(function_dict[selected_algorithm_name])
