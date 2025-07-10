@@ -15,11 +15,11 @@ folder_in2 = cd+"/template_data/"
 folder_out = cd+"/output_data/"
 
 def main():
-    human_lex = initiate_lexicon(word_file_task=folder_in + '\\human_w.csv',
-                                 word_file_lexicon=folder_in + '\\human_w_lexicon.csv',
-                                 non_word_task=folder_in + '\\human_non-words.csv')
+    human_lex = initiate_lexicon(word_file_task=folder_in + '/human_w.csv',
+                                 word_file_lexicon=folder_in + '/human_w_lexicon.csv',
+                                 non_word_task=folder_in + '/human_non-words.csv')
 
-    wrapper_lexicon_wide_pe_estimation(human_lex, file_name=folder_out+"\\results.csv", ope_version="gagl_2020", word_in_lex=True)
+    wrapper_lexicon_wide_pe_estimation(human_lex, file_name=folder_out+"/results.csv", ope_version="gagl_2020", word_in_lex=True)
 
 
 

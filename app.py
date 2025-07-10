@@ -208,6 +208,6 @@ if st.button("Run"):
 
     st.success("Simulation completed!")
 
-    df = pd.read_csv(folder_out + "\\results.csv", index_col=False)
+    df = pd.read_csv(folder_out + "/results.csv", index_col=False)
     st.write("### Simulation Results")
     st.dataframe(df, use_container_width=True)
