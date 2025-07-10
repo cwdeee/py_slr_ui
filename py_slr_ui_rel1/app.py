@@ -10,8 +10,32 @@ from pathlib import Path
 import threading 
 import time
 
+import os
+import sys
+from pathlib import Path
 
-os.chdir(str(Path(__file__).parent.resolve()))
+def get_app_base_dir():
+
+    if getattr(sys, 'frozen', False):
+        return Path(sys._MEIPASS)
+
+    elif '__file__' in globals():
+
+        return Path(__file__).parent.resolve() #os.chdir(str(Path(__file__).parent.resolve()))
+
+    else:
+        return Path.cwd()
+
+
+try:
+    base_dir = get_app_base_dir()
+    os.chdir(str(base_dir))
+    print(f"[INFO] Working directory changed to: {base_dir}")
+except Exception as e:
+    print(f"[ERROR] Failed to change directory: {e}")
+
+
+
 
 def load_module_and_run_calculation_function(_dir):
     # Get the path of the module directory
