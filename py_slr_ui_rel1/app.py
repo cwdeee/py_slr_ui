@@ -11,6 +11,7 @@ import threading
 import time
 
 
+os.chdir(str(Path(__file__).parent.resolve()))
 
 def load_module_and_run_calculation_function(_dir):
     # Get the path of the module directory
