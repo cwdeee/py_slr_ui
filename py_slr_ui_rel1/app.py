@@ -39,7 +39,7 @@ except Exception as e:
 
 def load_module_and_run_calculation_function(_dir):
     # Get the path of the module directory
-    _path = str(Path(__file__).parent.parent.joinpath(_dir).resolve())
+    _path = str(base_dir.parent.joinpath(_dir).resolve())
     sys.path.append(_path)
     
     # Record the set of already loaded modules
@@ -48,7 +48,7 @@ def load_module_and_run_calculation_function(_dir):
     # Load the module and run the calculate command
     print("Using " + _path)
     app_module = importlib.import_module('main')
-    os.chdir(_dir)
+    os.chdir(_path)
     app_module.main()
     
     # Unload all new imports (including 'main' and its dependencies)
@@ -65,9 +65,7 @@ function_dict = {
 }
 
 
-
-
-cd = str(Path(__file__).parent.parent.joinpath("py_slr_ui_rel1").resolve()) 
+cd = str(base_dir.parent.joinpath("py_slr_ui_rel1").resolve()) 
 folder_in = cd+"/input_data/"
 folder_in2 = cd+"/template_data/"
 folder_out = cd+"/output_data/"
@@ -106,7 +104,7 @@ def run_simulation(stimuli_words, stimuli_non_words, lexicon):
 st.set_page_config(page_title="Self Learning Systems Lab", layout="centered")
 
 # Add the logo to the app
-st.image(str(Path(__file__).parent.parent.joinpath("py_slr_ui_rel1","logo.png").resolve()), width=200)
+st.image(str(base_dir.parent.joinpath("py_slr_ui_rel1", "logo.png").resolve()), width=200)
 # Custom theme styling
 # Set the light theme in app code
 st.markdown("""
