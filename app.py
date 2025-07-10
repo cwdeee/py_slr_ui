@@ -141,14 +141,14 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Stimuli Words")
-    stimuli_words = st.text_area("Enter Stimuli Words (one per line)", value=load_csv_to_text_area(folder_in2 + "\\human_w.csv"))
+    stimuli_words = st.text_area("Enter Stimuli Words (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_w.csv"))
 
 with col2:
     st.subheader("Stimuli Non-Words")
-    stimuli_non_words = st.text_area("Enter Stimuli Non-Words (one per line)", value=load_csv_to_text_area(folder_in2 + "\\human_non-words.csv"))
+    stimuli_non_words = st.text_area("Enter Stimuli Non-Words (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_non-words.csv"))
 
 st.subheader("Lexicon")
-lexicon = st.text_area("Enter Lexicon Words (one per line)", value=load_csv_to_text_area(folder_in2 + "\\human_w_lexicon.csv"))
+lexicon = st.text_area("Enter Lexicon Words (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_w_lexicon.csv"))
 
 selected_algorithm_name = st.selectbox("Algorithm Version", options=list(function_dict.keys()))
 
