@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 def get_app_base_dir():
-
+    return Path.cwd()
     if getattr(sys, 'frozen', False):
         return Path(sys._MEIPASS)
 
@@ -39,7 +39,7 @@ except Exception as e:
 
 def load_module_and_run_calculation_function(_dir):
     # Get the path of the module directory
-    _path = str(base_dir.parent.joinpath(_dir).resolve())
+    _path = str(base_dir.joinpath(_dir).resolve())
     sys.path.append(_path)
     
     # Record the set of already loaded modules
@@ -50,6 +50,7 @@ def load_module_and_run_calculation_function(_dir):
     app_module = importlib.import_module('main')
     os.chdir(_path)
     app_module.main()
+    os.chdir(base_dir)
     
     # Unload all new imports (including 'main' and its dependencies)
     after_import = set(sys.modules.keys())
@@ -65,10 +66,10 @@ function_dict = {
 }
 
 
-cd = str(base_dir.parent.joinpath("py_slr_ui_rel1").resolve()) 
-folder_in = cd+"/input_data/"
-folder_in2 = cd+"/template_data/"
-folder_out = cd+"/output_data/"
+cd = str(base_dir)
+folder_in = str(base_dir.joinpath("input_data").resolve()) # cd+"/input_data/"
+folder_in2 = str(base_dir.joinpath("template_data").resolve()) # cd+"/template_data/"
+folder_out = str(base_dir.joinpath("output_data").resolve()) # cd+"/output_data/"
 
 
 
@@ -104,7 +105,7 @@ def run_simulation(stimuli_words, stimuli_non_words, lexicon):
 st.set_page_config(page_title="Self Learning Systems Lab", layout="centered")
 
 # Add the logo to the app
-st.image(str(base_dir.parent.joinpath("py_slr_ui_rel1", "logo.png").resolve()), width=200)
+st.image(str(base_dir.joinpath("logo.png").resolve()), width=200)
 # Custom theme styling
 # Set the light theme in app code
 st.markdown("""
@@ -140,14 +141,14 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Stimuli Words")
-    stimuli_words = st.text_area("Enter Stimuli Words (one per line)", value=load_csv_to_text_area(folder_in2 + "human_w.csv"))
+    stimuli_words = st.text_area("Enter Stimuli Words (one per line)", value=load_csv_to_text_area(folder_in2 + "\\human_w.csv"))
 
 with col2:
     st.subheader("Stimuli Non-Words")
-    stimuli_non_words = st.text_area("Enter Stimuli Non-Words (one per line)", value=load_csv_to_text_area(folder_in2 + "human_non-words.csv"))
+    stimuli_non_words = st.text_area("Enter Stimuli Non-Words (one per line)", value=load_csv_to_text_area(folder_in2 + "\\human_non-words.csv"))
 
 st.subheader("Lexicon")
-lexicon = st.text_area("Enter Lexicon Words (one per line)", value=load_csv_to_text_area(folder_in2 + "human_w_lexicon.csv"))
+lexicon = st.text_area("Enter Lexicon Words (one per line)", value=load_csv_to_text_area(folder_in2 + "\\human_w_lexicon.csv"))
 
 selected_algorithm_name = st.selectbox("Algorithm Version", options=list(function_dict.keys()))
 
@@ -207,6 +208,6 @@ if st.button("Run"):
 
     st.success("Simulation completed!")
 
-    df = pd.read_csv(folder_out + "results.csv", index_col=False)
+    df = pd.read_csv(folder_out + "\\results.csv", index_col=False)
     st.write("### Simulation Results")
     st.dataframe(df, use_container_width=True)
