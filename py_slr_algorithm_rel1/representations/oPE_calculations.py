@@ -32,7 +32,7 @@ class pe_class:
 
 
 def get_prediction_img(knowledge_list: object,
-                       font_path: object = "fonts/Courier_Prime/CourierPrime-Bold.ttf",
+                       font_path: object = "py_slr_algorithm_rel1/fonts/Courier_Prime/CourierPrime-Bold.ttf",
                        height_image: object = 40,
                        width_image: object = 200,
                        noise_amount: object = 0,

@@ -48,9 +48,9 @@ def load_module_and_run_calculation_function(_dir):
     # Load the module and run the calculate command
     print("Using " + _path)
     app_module = importlib.import_module('main')
-    os.chdir(_path)
+    #os.chdir(_path)
     app_module.main(base_dir)
-    os.chdir(base_dir)
+    #os.chdir(base_dir)
     
     # Unload all new imports (including 'main' and its dependencies)
     after_import = set(sys.modules.keys())
@@ -105,7 +105,7 @@ def run_simulation(stimuli_words, stimuli_non_words, lexicon):
 st.set_page_config(page_title="Self Learning Systems Lab", layout="centered")
 
 # Add the logo to the app
-#st.image(str(base_dir.joinpath("logo.png").resolve()), width=200)
+st.image(str(base_dir.joinpath("logo.png").resolve()), width=200)
 # Custom theme styling
 # Set the light theme in app code
 st.markdown("""
@@ -126,7 +126,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Set up the Streamlit layout
-st.title("SLR v.01 App")
+st.title("SLR App")
 
 
 # Initialize text areas with data from CSV files if they exist
