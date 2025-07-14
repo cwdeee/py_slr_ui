@@ -215,7 +215,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                                df["lexicality"] == "word"), "oaspe_norm_dec_p" + str(i)] = 1
 
         # print(file_name)
-        df = df.rename(columns={'ape': 'Lpe', 'ape_norm': 'Lpe_norm', 'oape_norm': 'oLpe_norm', 'aspe_norm': 'Lspe_norm', 'oaspe_norm': 'oLspe_norm'})
+        df = df.rename(columns={'ape': 'Lpe', 'ape_norm': 'Lpe_norm', 'oape_norm_sum': 'oLpe_norm_sum', 'aspe_norm_sum': 'Lspe_norm_sum', 'oaspe_norm_sum': 'oLspe_norm_sum'})
         df.to_csv(file_name, index=False)
 
 
