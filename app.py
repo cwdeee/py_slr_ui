@@ -126,7 +126,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Set up the Streamlit layout
-st.title("SLR App")
+st.title("Speechless Reader App (see https://doi.org/10.1101/2024.06.25.600635 for details)")
 
 
 # Initialize text areas with data from CSV files if they exist
@@ -140,15 +140,15 @@ def load_csv_to_text_area(file_path):
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Stimuli Words")
-    stimuli_words = st.text_area("Enter Stimuli Words (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_w.csv"))
+    st.subheader("Words / Learned items")
+    stimuli_words = st.text_area("Enter stimuli (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_w.csv"))
 
 with col2:
-    st.subheader("Stimuli Non-Words")
-    stimuli_non_words = st.text_area("Enter Stimuli Non-Words (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_non-words.csv"))
+    st.subheader("Non-Words / Novel items")
+    stimuli_non_words = st.text_area("Enter stimuli (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_non-words.csv"))
 
 st.subheader("Lexicon")
-lexicon = st.text_area("Enter Lexicon Words (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_w_lexicon.csv"))
+lexicon = st.text_area("Enter known words / items (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_w_lexicon.csv"))
 
 selected_algorithm_name = st.selectbox("Algorithm Version", options=list(function_dict.keys()))
 
