@@ -69,7 +69,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                 'ope': 0,
                 'ape': 0,
                 'spe': 0,
-                'spe_inverted': 0,
+               # 'spe_inverted': 0,
                 'letter_length': 0,
                 "ope_norm": 0,
                 "ape_norm": 0,
@@ -94,7 +94,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                      lexicon["task_words"]]
         spe_words = [get_word_spe(string, lexicon, output="value", threshold=spe_threshold) for string in
                      lexicon["task_words"]]
-        spe_words_inv = [get_word_spe_inverted(string, lexicon) for string in lexicon["task_words"]]
+       # spe_words_inv = [get_word_spe_inverted(string, lexicon) for string in lexicon["task_words"]]
 
         ape_N_words = [get_word_ape(string, lexicon, output="value", threshold=ape_threshold) for string in
                        lexicon["task_non-words"]]
@@ -117,7 +117,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                 'ope': ope_words + ope_N_words,
                 'ape': ape_words + ape_N_words,
                 'spe': spe_words + spe_N_words,
-                'spe_inverted': spe_words_inv + spe_N_words_inv,
+             #   'spe_inverted': spe_words_inv + spe_N_words_inv,
                 'letter_length': len_words + len_N_words}
 
         df = DataFrame(data)
