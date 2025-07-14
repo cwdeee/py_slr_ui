@@ -214,7 +214,8 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                         find_decision_boundary(lexicon, type="ope:ape:spe").percentiles[i]) & (
                                df["lexicality"] == "word"), "oaspe_norm_dec_p" + str(i)] = 1
 
-        print(file_name)
+        # print(file_name)
+        df = df.rename(columns={'ape': 'Lpe', 'ape_norm': 'Lpe_norm', 'oape_norm': 'oLpe_norm', 'aspe_norm': 'Lspe_norm', 'oaspe_norm': 'oLspe_norm'})
         df.to_csv(file_name, index=False)
 
 
