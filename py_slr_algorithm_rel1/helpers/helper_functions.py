@@ -215,7 +215,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                                df["lexicality"] == "word"), "oaspe_norm_dec_p" + str(i)] = 1
 
         print(file_name)
-        df.to_csv(file_name)
+        df.to_csv(file_name, index=False)
 
 
 def wrapper_store_oPE_perc(lexicon, threshold=0.5, mode="mean", path="./images/", height_image=40, width_image=200,
