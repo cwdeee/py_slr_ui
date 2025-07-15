@@ -154,7 +154,7 @@ st.subheader("Lexicon")
 lexicon = st.text_area("Enter Lexicon Words (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_w_lexicon.csv"))
 
 st.subheader("Thresholds")
-lexicon = st.text_area("Enter Threshold Values between .5 und .99", value=load_csv_to_text_area(folder_in2 + "/human_threshold.csv"))
+thresholds = st.text_area("Enter Threshold Values between .5 und .99", value=load_csv_to_text_area(folder_in2 + "/human_thresholds.csv"))
 
 
 selected_algorithm_name = st.selectbox("Algorithm Version", options=list(function_dict.keys()))
@@ -186,7 +186,7 @@ def simulate_progress_bar(total_time_estimate):
 
 
 def long_computation(): 
-    run_simulation(stimuli_words, stimuli_non_words, lexicon)
+    run_simulation(stimuli_words, stimuli_non_words, lexicon,thresholds)
 
 # Run button
 if st.button("Run"):
