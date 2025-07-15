@@ -69,7 +69,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                 'ope': 0,
                 'ape': 0,
                 'spe': 0,
-                'spe_inverted': 0,
+               # 'spe_inverted': 0,
                 'letter_length': 0,
                 "ope_norm": 0,
                 "ape_norm": 0,
@@ -94,7 +94,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                      lexicon["task_words"]]
         spe_words = [get_word_spe(string, lexicon, output="value", threshold=spe_threshold) for string in
                      lexicon["task_words"]]
-        spe_words_inv = [get_word_spe_inverted(string, lexicon) for string in lexicon["task_words"]]
+       # spe_words_inv = [get_word_spe_inverted(string, lexicon) for string in lexicon["task_words"]]
 
         ape_N_words = [get_word_ape(string, lexicon, output="value", threshold=ape_threshold) for string in
                        lexicon["task_non-words"]]
@@ -117,7 +117,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                 'ope': ope_words + ope_N_words,
                 'ape': ape_words + ape_N_words,
                 'spe': spe_words + spe_N_words,
-                'spe_inverted': spe_words_inv + spe_N_words_inv,
+             #   'spe_inverted': spe_words_inv + spe_N_words_inv,
                 'letter_length': len_words + len_N_words}
 
         df = DataFrame(data)
@@ -130,7 +130,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
         df["ospe_norm_sum"] = df["ope_norm"] + df["spe_norm"]
         df["aspe_norm_sum"] = df["spe_norm"] + df["ape_norm"]
         df["oaspe_norm_sum"] = df["spe_norm"] + df["ope_norm"] + df["ape_norm"]
-        df["oaspe_norm_mult"] = df["spe_norm"] * df["ope_norm"] * df["ape_norm"]
+        # df["oaspe_norm_mult"] = df["spe_norm"] * df["ope_norm"] * df["ape_norm"]
 
         if dec_boundary:
             lex_cat(representation="ope_norm", boundary="LCM", df=df, lexicon=lexicon)
@@ -138,7 +138,7 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
             lex_cat(representation="spe_norm", boundary="LCM", df=df, lexicon=lexicon)
 
             lex_cat(representation="oaspe_norm_sum", boundary="LCM", df=df, lexicon=lexicon)
-            lex_cat(representation="oaspe_norm_mult", boundary="LCM", df=df, lexicon=lexicon)
+          #  lex_cat(representation="oaspe_norm_mult", boundary="LCM", df=df, lexicon=lexicon)
 
             df["ope_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["ope_norm"][df["lexicality"] == "word"],
                                                                   nw_pe=df["ope_norm"][df["lexicality"] == "non-word"],
@@ -157,10 +157,10 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                                nw_pe=df["oaspe_norm_sum"][df["lexicality"] == "non-word"],
                                string_pe=pe) for pe in df["oaspe_norm_sum"]])
 
-            df["oaspe_norm_mult_entro"] = min_max_scaling(
-                [lex_cat_entro(w_pe=df["oaspe_norm_mult"][df["lexicality"] == "word"],
-                               nw_pe=df["oaspe_norm_mult"][df["lexicality"] == "non-word"],
-                               string_pe=pe) for pe in df["oaspe_norm_mult"]])
+           # df["oaspe_norm_mult_entro"] = min_max_scaling(
+            #    [lex_cat_entro(w_pe=df["oaspe_norm_mult"][df["lexicality"] == "word"],
+             #                  nw_pe=df["oaspe_norm_mult"][df["lexicality"] == "non-word"],
+              #                 string_pe=pe) for pe in df["oaspe_norm_mult"]])
 
         if rt_sim:
             df["ope_norm_entro_sim_rt"] = [random_walk_with_boundary(lc_difficutly=(diff - .5)) for diff in
@@ -171,8 +171,8 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                                            df["spe_norm_entro"]]
             df["oaspe_norm_sum_entro_sim_rt"] = [random_walk_with_boundary(lc_difficutly=(diff - .5)) for diff in
                                                  df["oaspe_norm_sum_entro"]]
-            df["oaspe_norm_mult_entro_sim_rt"] = [random_walk_with_boundary(lc_difficutly=(diff - .5)) for diff in
-                                                  df["oaspe_norm_mult_entro"]]
+          #  df["oaspe_norm_mult_entro_sim_rt"] = [random_walk_with_boundary(lc_difficutly=(diff - .5)) for diff in
+           #                                       df["oaspe_norm_mult_entro"]]
         if dec_boundary:
             for i in boundaries:
                 lex_cat(representation="ope_norm", boundary=i, df=df, lexicon=lexicon)
@@ -214,8 +214,9 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
                         find_decision_boundary(lexicon, type="ope:ape:spe").percentiles[i]) & (
                                df["lexicality"] == "word"), "oaspe_norm_dec_p" + str(i)] = 1
 
-        print(file_name)
-        df.to_csv(file_name)
+        # print(file_name)
+        df = df.rename(columns={'ape': 'Lpe', 'ape_norm': 'Lpe_norm', 'oape_norm_sum': 'oLpe_norm_sum', 'aspe_norm_sum': 'Lspe_norm_sum', 'oaspe_norm_sum': 'oLspe_norm_sum'})
+        df.to_csv(file_name, index=False)
 
 
 def wrapper_store_oPE_perc(lexicon, threshold=0.5, mode="mean", path="./images/", height_image=40, width_image=200,
