@@ -75,23 +75,26 @@ folder_out = str(base_dir.joinpath("output_data").resolve()) # cd+"/output_data/
 
 
 # Define the run_simulation function
-def run_simulation(stimuli_words, stimuli_non_words, lexicon):
+def run_simulation(stimuli_words, stimuli_non_words, lexicon,thresholds):
 
 
     # Save the inputs into their respective CSV files
     human_w = stimuli_words.split("\n")
     human_non_words = stimuli_non_words.split("\n")
     human_w_lexicon = lexicon.split("\n")
+    human_thresholds = thresholds.split("\n")
     
     # Convert to DataFrame
     df_human_w = pd.DataFrame(human_w, columns=["Stimuli Words"])
     df_human_non_words = pd.DataFrame(human_non_words, columns=["Stimuli Non-Words"])
     df_human_w_lexicon = pd.DataFrame(human_w_lexicon, columns=["Lexicon"])
+    df_human_thresholds = pd.DataFrame(human_thresholds, columns=["Thresholds"])
     
     # Save to CSV
     df_human_w.dropna().to_csv(folder_in + "/human_w.csv", index=False, header=False, encoding='utf-8')
     df_human_non_words.dropna().to_csv(folder_in + "/human_non-words.csv", index=False, header=False, encoding='utf-8')
     df_human_w_lexicon.dropna().to_csv(folder_in + "/human_w_lexicon.csv", index=False, header=False, encoding='utf-8')
+    df_human_thresholds.dropna().to_csv(folder_in + "/human_thresholds.csv", index=False, header=False, encoding='utf-8')
     
 
     load_module_and_run_calculation_function(function_dict[selected_algorithm_name])
@@ -149,6 +152,10 @@ with col2:
 
 st.subheader("Lexicon")
 lexicon = st.text_area("Enter Lexicon Words (one per line)", value=load_csv_to_text_area(folder_in2 + "/human_w_lexicon.csv"))
+
+st.subheader("Thresholds")
+lexicon = st.text_area("Enter Threshold Values between .5 und .99", value=load_csv_to_text_area(folder_in2 + "/human_threshold.csv"))
+
 
 selected_algorithm_name = st.selectbox("Algorithm Version", options=list(function_dict.keys()))
 
