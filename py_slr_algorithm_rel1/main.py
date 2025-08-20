@@ -21,9 +21,13 @@ def main(base_dir):
                                  word_file_lexicon=folder_in + '/human_w_lexicon.csv',
                                  non_word_task=folder_in + '/human_non-words.csv')
     
-    threshold = read_csv(folder_in + '/human_thresholds.csv')
-
-    wrapper_lexicon_wide_pe_estimation(human_lex, file_name=folder_out+"/results.csv", ope_version="gagl_2020", word_in_lex=True, dec_boundary=threshold['Thresholds'].tolist())
+    threshold_df = read_csv(folder_in + '/human_thresholds.csv')
+    thresholds = threshold_df['Thresholds'].tolist()
+    if len(thresholds)>0:
+        is_boundary = True
+    else:
+        is_boundary = False
+    wrapper_lexicon_wide_pe_estimation(human_lex, file_name=folder_out+"/results.csv", ope_version="gagl_2020", word_in_lex=True, dec_boundary=is_boundary,boundaries=thresholds)
 
 
 
