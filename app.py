@@ -75,7 +75,7 @@ folder_out = str(base_dir.joinpath("output_data").resolve()) # cd+"/output_data/
 
 
 # Define the run_simulation function
-def run_simulation(stimuli_words, stimuli_non_words, lexicon,thresholds):
+def run_simulation(stimuli_words, stimuli_non_words, lexicon, thresholds):
 
 
     # Save the inputs into their respective CSV files
@@ -186,7 +186,7 @@ def simulate_progress_bar(total_time_estimate):
 
 
 def long_computation(): 
-    run_simulation(stimuli_words, stimuli_non_words, lexicon,thresholds)
+    run_simulation(stimuli_words, stimuli_non_words, lexicon, thresholds)
 
 # Run button
 if st.button("Run"):

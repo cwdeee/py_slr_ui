@@ -20,8 +20,10 @@ def main(base_dir):
     human_lex = initiate_lexicon(word_file_task=folder_in + '/human_w.csv',
                                  word_file_lexicon=folder_in + '/human_w_lexicon.csv',
                                  non_word_task=folder_in + '/human_non-words.csv')
+    
+    threshold = read_csv(folder_in + '/human_thresholds.csv')
 
-    wrapper_lexicon_wide_pe_estimation(human_lex, file_name=folder_out+"/results.csv", ope_version="gagl_2020", word_in_lex=True)
+    wrapper_lexicon_wide_pe_estimation(human_lex, file_name=folder_out+"/results.csv", ope_version="gagl_2020", word_in_lex=True, dec_boundary=threshold['Thresholds'].tolist())
 
 
 
