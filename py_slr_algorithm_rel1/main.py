@@ -21,8 +21,10 @@ def main(base_dir):
                                  word_file_lexicon=folder_in + '/human_w_lexicon.csv',
                                  non_word_task=folder_in + '/human_non-words.csv')
     
-    threshold_df = read_csv(folder_in + '/human_thresholds.csv')
-    thresholds = threshold_df['Thresholds'].tolist()
+    threshold_df = read_csv(folder_in + '/human_thresholds.csv', header=None)
+    print(threshold_df)
+    thresholds = threshold_df[threshold_df.columns.to_list()[0]].tolist()
+    print(thresholds)
     if len(thresholds)>0:
         is_boundary = True
     else:
@@ -32,4 +34,5 @@ def main(base_dir):
 
 
 if __name__ == '__main__':
-    main()
+    base_dir = Path(__file__).parent.resolve() 
+    main(base_dir)

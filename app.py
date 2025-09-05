@@ -30,7 +30,7 @@ def get_app_base_dir():
 try:
     base_dir = get_app_base_dir()
     os.chdir(str(base_dir))
-    print(f"[INFO] Working directory changed to: {base_dir}")
+    #print(f"[INFO] Working directory changed to: {base_dir}")
 except Exception as e:
     print(f"[ERROR] Failed to change directory: {e}")
 
