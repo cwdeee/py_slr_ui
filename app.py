@@ -136,7 +136,7 @@ st.title("Speechless Reader App (see https://doi.org/10.1101/2024.06.25.600635 f
 def load_csv_to_text_area(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
-    return "\n".join(content.split("\n")[1:])
+    return "\n".join(content.split("\n"))
 
 
 # Create two columns

@@ -8,7 +8,7 @@
             "name": "Python Debugger: ALGO-CODE main.py File",
             "type": "debugpy",
             "request": "launch",
-            "program": "/usr/local/bin/python /workspaces/py_slr_ui/py_slr_algorithm_rel1/main.py",
+            "program": "/workspaces/py_slr_ui/py_slr_algorithm_rel1/main.py",
             "console": "integratedTerminal"
         },
         {
@@ -19,8 +19,10 @@
             "args": [
                 "run",
                 "app.py",
-                "--server.enableCORS", "false",
-                "--server.enableXsrfProtection", "false"
+                "--server.enableCORS",
+                "false",
+                "--server.enableXsrfProtection",
+                "false"
             ]
         }
     ]
