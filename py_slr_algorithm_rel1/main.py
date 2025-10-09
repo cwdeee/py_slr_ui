@@ -17,7 +17,7 @@ def main(base_dir):
                                  word_file_lexicon=folder_in + '/human_w_lexicon.csv',
                                  non_word_task=folder_in + '/human_non-words.csv')
     
-    is_calc2 = False
+    #is_calc2 = False
 
     threshold_version = 5
     if threshold_version == 1:
@@ -57,10 +57,11 @@ def main(base_dir):
             print(thresholds)
         #is_boundary = True
 
-    if is_calc2 == True:
+    if is_boundary == True:
+
         wrapper_lexicon_wide_pe_estimation(human_lex, file_name=folder_out+"/results.csv", ope_version="gagl_2020", word_in_lex=True)
     else:
-        print(thresholds)
+        print("-")
         wrapper_lexicon_wide_pe_estimation(human_lex, file_name=folder_out+"/results.csv", ope_version="gagl_2020", word_in_lex=True, dec_boundary=is_boundary,boundaries=thresholds)
 
     results = read_csv(str(base_dir)+"/output_data/results.csv", header=None)
