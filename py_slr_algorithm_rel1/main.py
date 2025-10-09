@@ -41,16 +41,15 @@ def main(base_dir):
         # Weil von Kommawerten ausgegangen wird
         is_boundary = True
     elif threshold_version == 5:
-        print("hi")
         with open(folder_in + '/human_thresholds.csv', 'r', encoding='utf-8') as file:
             content = file.read()
         #thresholds = content.split("\n")
     
         # Split into lines and convert each non-empty line to float
         thresholds = [float(x) for x in content.split("\n") if x.strip() != ""]
-        print(thresholds)
+        
         # if all values are above 
-        is_boundary = not all(value > 1 for value in thresholds) 
+        is_boundary = all(0 < value < 99 for value in thresholds)#not all(value > 1 for value in thresholds) 
         print(is_boundary)
         if not is_boundary:
             print("Numbers instead of Decimal")
