@@ -57,7 +57,7 @@ def main(base_dir):
             print(thresholds)
         #is_boundary = True
 
-    if is_boundary == True:
+    if is_boundary != True:
 
         wrapper_lexicon_wide_pe_estimation(human_lex, file_name=folder_out+"/results.csv", ope_version="gagl_2020", word_in_lex=True)
     else:
