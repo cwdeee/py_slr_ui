@@ -7,10 +7,6 @@ from helpers.helper_functions import wrapper_lexicon_wide_pe_estimation, initiat
     wrapper_lexicon_wide_pe_estimation_preview, return_df_preview
 
 
-
-
-
-
 def main(base_dir):
     cd = str(base_dir)
     folder_in = cd+"/input_data"
@@ -52,13 +48,14 @@ def main(base_dir):
     
         # Split into lines and convert each non-empty line to float
         thresholds = [float(x) for x in content.split("\n") if x.strip() != ""]
-        
+        print(thresholds)
         # if all values are above 
         is_boundary = not all(value > 1 for value in thresholds) 
-        
+        print(is_boundary)
         if not is_boundary:
             print("Numbers instead of Decimal")
             thresholds = [int(x) for x in thresholds]
+            print(thresholds)
         #is_boundary = True
 
     if is_calc2 == True:
