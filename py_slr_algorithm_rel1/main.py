@@ -46,7 +46,7 @@ def main(base_dir):
         #thresholds = content.split("\n")
     
         # Split into lines and convert each non-empty line to float
-        thresholds = [float(x) for x in content.split("\n") if x.strip() != ""]
+        thresholds = [int(x) for x in content.split("\n") if x.strip() != ""]
         
         # if all values are above 
         is_boundary = all(0 < value < 99 for value in thresholds)#not all(value > 1 for value in thresholds) 

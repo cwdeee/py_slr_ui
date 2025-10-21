@@ -140,22 +140,22 @@ def wrapper_lexicon_wide_pe_estimation(lexicon, file_name="tmp.csv", boundaries=
             lex_cat(representation="oaspe_norm_sum", boundary="LCM", df=df, lexicon=lexicon)
           #  lex_cat(representation="oaspe_norm_mult", boundary="LCM", df=df, lexicon=lexicon)
 
-            df["ope_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["ope_norm"][df["lexicality"] == "word"],
-                                                                  nw_pe=df["ope_norm"][df["lexicality"] == "non-word"],
-                                                                  string_pe=pe) for pe in df["ope_norm"]])
+          #  df["ope_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["ope_norm"][df["lexicality"] == "word"],
+           #                                                       nw_pe=df["ope_norm"][df["lexicality"] == "non-word"],
+            #                                                      string_pe=pe) for pe in df["ope_norm"]])
 
-            df["ape_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["ape_norm"][df["lexicality"] == "word"],
-                                                                  nw_pe=df["ape_norm"][df["lexicality"] == "non-word"],
-                                                                  string_pe=pe) for pe in df["ape_norm"]])
+         #   df["ape_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["ape_norm"][df["lexicality"] == "word"],
+          #                                                        nw_pe=df["ape_norm"][df["lexicality"] == "non-word"],
+           #                                                       string_pe=pe) for pe in df["ape_norm"]])
 
-            df["spe_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["spe_norm"][df["lexicality"] == "word"],
-                                                                  nw_pe=df["spe_norm"][df["lexicality"] == "non-word"],
-                                                                  string_pe=pe) for pe in df["spe_norm"]])
+            #df["spe_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["spe_norm"][df["lexicality"] == "word"],
+             #                                                     nw_pe=df["spe_norm"][df["lexicality"] == "non-word"],
+              #                                                    string_pe=pe) for pe in df["spe_norm"]])
 
-            df["oaspe_norm_sum_entro"] = min_max_scaling(
-                [lex_cat_entro(w_pe=df["oaspe_norm_sum"][df["lexicality"] == "word"],
-                               nw_pe=df["oaspe_norm_sum"][df["lexicality"] == "non-word"],
-                               string_pe=pe) for pe in df["oaspe_norm_sum"]])
+         #   df["oaspe_norm_sum_entro"] = min_max_scaling(
+          #      [lex_cat_entro(w_pe=df["oaspe_norm_sum"][df["lexicality"] == "word"],
+           #                    nw_pe=df["oaspe_norm_sum"][df["lexicality"] == "non-word"],
+            #                   string_pe=pe) for pe in df["oaspe_norm_sum"]])
 
            # df["oaspe_norm_mult_entro"] = min_max_scaling(
             #    [lex_cat_entro(w_pe=df["oaspe_norm_mult"][df["lexicality"] == "word"],
@@ -327,27 +327,27 @@ def wrapper_lexicon_wide_pe_estimation_preview(lexicon, file_name="tmp.csv", bou
             lex_cat(representation="oaspe_norm_sum", boundary="LCM", df=df, lexicon=lexicon)
             lex_cat(representation="oaspe_norm_mult", boundary="LCM", df=df, lexicon=lexicon)
 
-            df["ope_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["ope_norm"][df["lexicality"] == "word"],
-                                                                  nw_pe=df["ope_norm"][df["lexicality"] == "non-word"],
-                                                                  string_pe=pe) for pe in df["ope_norm"]])
+           # df["ope_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["ope_norm"][df["lexicality"] == "word"],
+            #                                                      nw_pe=df["ope_norm"][df["lexicality"] == "non-word"],
+             #                                                     string_pe=pe) for pe in df["ope_norm"]])
 
-            df["ape_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["ape_norm"][df["lexicality"] == "word"],
-                                                                  nw_pe=df["ape_norm"][df["lexicality"] == "non-word"],
-                                                                  string_pe=pe) for pe in df["ape_norm"]])
+           # df["ape_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["ape_norm"][df["lexicality"] == "word"],
+            #                                                      nw_pe=df["ape_norm"][df["lexicality"] == "non-word"],
+             #                                                     string_pe=pe) for pe in df["ape_norm"]])
 
-            df["spe_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["spe_norm"][df["lexicality"] == "word"],
-                                                                  nw_pe=df["spe_norm"][df["lexicality"] == "non-word"],
-                                                                  string_pe=pe) for pe in df["spe_norm"]])
+           # df["spe_norm_entro"] = min_max_scaling([lex_cat_entro(w_pe=df["spe_norm"][df["lexicality"] == "word"],
+            #                                                      nw_pe=df["spe_norm"][df["lexicality"] == "non-word"],
+             #                                                     string_pe=pe) for pe in df["spe_norm"]])
 
-            df["oaspe_norm_sum_entro"] = min_max_scaling(
-                [lex_cat_entro(w_pe=df["oaspe_norm_sum"][df["lexicality"] == "word"],
-                               nw_pe=df["oaspe_norm_sum"][df["lexicality"] == "non-word"],
-                               string_pe=pe) for pe in df["oaspe_norm_sum"]])
+           # df["oaspe_norm_sum_entro"] = min_max_scaling(
+            #    [lex_cat_entro(w_pe=df["oaspe_norm_sum"][df["lexicality"] == "word"],
+             #                  nw_pe=df["oaspe_norm_sum"][df["lexicality"] == "non-word"],
+              #                 string_pe=pe) for pe in df["oaspe_norm_sum"]])
 
-            df["oaspe_norm_mult_entro"] = min_max_scaling(
-                [lex_cat_entro(w_pe=df["oaspe_norm_mult"][df["lexicality"] == "word"],
-                               nw_pe=df["oaspe_norm_mult"][df["lexicality"] == "non-word"],
-                               string_pe=pe) for pe in df["oaspe_norm_mult"]])
+          #  df["oaspe_norm_mult_entro"] = min_max_scaling(
+           #     [lex_cat_entro(w_pe=df["oaspe_norm_mult"][df["lexicality"] == "word"],
+            #                   nw_pe=df["oaspe_norm_mult"][df["lexicality"] == "non-word"],
+             #                  string_pe=pe) for pe in df["oaspe_norm_mult"]])
 
         if rt_sim:
             df["ope_norm_entro_sim_rt"] = [random_walk_with_boundary(lc_difficutly=(diff - .5)) for diff in
