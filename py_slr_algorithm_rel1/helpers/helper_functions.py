@@ -43,16 +43,16 @@ def initiate_lexicon(word_file_task, word_file_lexicon, non_word_task):
 
 
 def lex_cat(representation="ope_norm", boundary=50, df=[], lexicon=[]):
-    if boundary == "LCM":
-        boundary = lex_cat_decision_boundary(w_pe=df[representation][df["lexicality"] == "word"],
-                                             nw_pe=df[representation][df["lexicality"] == "non-word"])
-        df[representation + "_dec_LCM_" + str(round(boundary, decimals=2))] = 0
-        df.loc[((df[representation]) > boundary) & (df["lexicality"] == "non-word"), representation + "_dec_LCM_" + str(
-            round(boundary, decimals=2))] = 1
-        df.loc[((df[representation]) <= boundary) & (df["lexicality"] == "word"), representation + "_dec_LCM_" + str(
-            round(boundary, decimals=2))] = 1
+    #if boundary == "LCM":
+     #   boundary = lex_cat_decision_boundary(w_pe=df[representation][df["lexicality"] == "word"],
+      #                                       nw_pe=df[representation][df["lexicality"] == "non-word"])
+       # df[representation + "_dec_LCM_" + str(round(boundary, decimals=2))] = 0
+    #    df.loc[((df[representation]) > boundary) & (df["lexicality"] == "non-word"), representation + "_dec_LCM_" + str(
+     #       round(boundary, decimals=2))] = 1
+      #  df.loc[((df[representation]) <= boundary) & (df["lexicality"] == "word"), representation + "_dec_LCM_" + str(
+       #     round(boundary, decimals=2))] = 1
 
-    else:
+    #else:
         df[representation + "_dec_p" + str(boundary)] = 0
         df.loc[((df[representation]) > find_decision_boundary(lexicon).percentiles[boundary]) & (
                 df["lexicality"] == "non-word"), representation + "_dec_p" + str(boundary)] = 1
